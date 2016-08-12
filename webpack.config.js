@@ -76,8 +76,8 @@ module.exports = function webpackConfig(hot, forceLoaderChange) {
 		resolve: {
 			extensions: ['', '.js', '.css', '.scss'],
 			alias: {
-				tu: __dirname + '/custom_modules/tu-css-lib/src'
-				// ,suitcssify: 'react-suitcssify/dist/lib/utility'
+				tu: __dirname + '/custom_modules/tu-css-lib/src',
+				suitcssify: 'react-suitcssify/dist/lib/utility'
 			}
 		},
 		module: {

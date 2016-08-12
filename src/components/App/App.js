@@ -3,12 +3,14 @@ import React, { Component, PropTypes } from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 
+const className = 'section';
+
 export class App extends Component {
 	render() {
 		return (
 			<div>
 				<Header/>
-				<span>Team manamgent content goes here</span>
+				<div className={className}>Content goes here</div>
 				<Footer/>
 			</div>
 		);

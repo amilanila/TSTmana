@@ -3,8 +3,8 @@ import React from 'react';
 const Header = () => {
 	return (
 		<div>
-			<a href="/">
-				Header - Team Management Solution
+			<a href="/tmana/home">
+				<h1>Team Management Solution</h1>
 			</a>
 		</div>
 	);
