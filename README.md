@@ -1,4 +1,4 @@
-# Single Page Checkout
+# Team management application
 
 ## Build Distribution
 
