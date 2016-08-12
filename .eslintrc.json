@@ -1,0 +1,23 @@
+{
+	"root": true,
+	"extends": "eslint-config-airbnb",
+	"env": {
+		"browser": true,
+		"node": true,
+		"jasmine": true
+	},
+	"plugins": [
+		"prefer-object-spread"
+	],
+	"ecmaFeatures": {
+		"experimentalObjectRestSpread": true
+	},
+	"rules": {
+		"indent": [2, "tab"],
+		"comma-dangle": [2, "never"],
+		"react/jsx-indent-props": [2, "tab"],
+		"react/jsx-curly-spacing": [2, "never", {"allowMultiline": true}],
+		"prefer-object-spread/prefer-object-spread": 2,
+		"no-multi-comp": 0
+	}
+}
