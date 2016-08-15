@@ -1,10 +1,11 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 const Header = () => {
 	return (
 		<div>
 			<a href="/tmana/home">
-				<h1>Team Management Solution</h1>
+				<PageHeader> TMana - UTSC</PageHeader>
 			</a>
 		</div>
 	);

@@ -28,8 +28,8 @@ export default class Root extends Component {
 
 	devTools() {
 		if (process.env.NODE_ENV !== 'production') {
-			const DevTools = require('./DevTools').default;
-			return <DevTools />;
+			// const DevTools = require('./DevTools').default;
+			// return <DevTools />;
 		}
 	}
 
