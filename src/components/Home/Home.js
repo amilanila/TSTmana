@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import TopBanner from '../TopBanner';
+import HomeNav from '../HomeNav';
 
 export const Home = () => {
 	return (
 		<div>
-			Home page
+			<TopBanner/>
+			<HomeNav/>
 		</div>
 	);
 };

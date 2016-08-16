@@ -2,15 +2,14 @@ import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-
-const className = 'section';
+import Home from '../Home';
 
 export class App extends Component {
 	render() {
 		return (
 			<div>
 				<Header/>
-				<div className={className}>Content goes here</div>
+				<Home/>
 				<Footer/>
 			</div>
 		);
