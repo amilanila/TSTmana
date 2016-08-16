@@ -1,13 +1,20 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Nav, NavItem } from 'react-bootstrap';
+import { Tabs, Tab } from 'material-ui/Tabs';
+import Junior from '../Junior';
 
 export const HomeNav = () => {
 	return (
-		<Nav bsStyle="tabs" activeKey="1">
-			<NavItem eventKey="1" href="/tmana/home">U11</NavItem>
-			<NavItem eventKey="1" href="/tmana/home">Senior</NavItem>
-		</Nav>
+		<Tabs>
+			<Tab label="Juniors">
+				<Junior/>
+			</Tab>
+			<Tab label="Seniors">
+				<div>
+					<h2>Tab Two</h2>
+				</div>
+			</Tab>
+		</Tabs>
 	);
 };
 

@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Home from '../Home';
+
+injectTapEventPlugin();
 
 export class App extends Component {
 	render() {
 		return (
-			<div>
-				<Header/>
+			<MuiThemeProvider>
 				<Home/>
-				<Footer/>
-			</div>
+			</MuiThemeProvider>
 		);
 	}
 }
