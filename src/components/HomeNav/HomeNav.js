@@ -24,6 +24,5 @@ export const propTypes = HomeNav.propTypes = {
 
 export default connect(
 	state => ({
-		containsDigitalEntriesOnly: state.cartSummary.containsDigitalEntriesOnly
 	})
 )(HomeNav);

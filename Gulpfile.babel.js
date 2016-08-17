@@ -8,7 +8,7 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.js';
 import WebpackDevServer from 'webpack-dev-server';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { mockWsApi, mockCmsApi } from './src/api/__mocks__';
+// import { mockWsApi, mockCmsApi } from './src/api/__mocks__';
 import express from 'express';
 import ejs from 'ejs';
 
@@ -55,10 +55,10 @@ gulp.task('dev', () => {
 	});
 
 	// Mock '/ws-api/'
-	server.use(mockWsApi.mountPath, mockWsApi.handler);
+	// server.use(mockWsApi.mountPath, mockWsApi.handler);
 
 	// Mock CMS '/'
-	server.use(mockCmsApi.mountPath, mockCmsApi.handler);
+	// server.use(mockCmsApi.mountPath, mockCmsApi.handler);
 
 	// Mount the /tmana path to sure up the base html (just like the deployment)
 	const tmana = express();

@@ -22,6 +22,5 @@ export const propTypes = Home.propTypes = {
 
 export default connect(
 	state => ({
-		containsDigitalEntriesOnly: state.cartSummary.containsDigitalEntriesOnly
 	})
 )(Home);

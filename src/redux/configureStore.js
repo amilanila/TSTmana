@@ -3,8 +3,6 @@ import rootReducer from './rootReducer';
 import thunk from 'redux-thunk';
 import analytics from './middleware/analytics';
 import metaDispatch from './middleware/meta-dispatch';
-import cart from './middleware/cart-middleware';
-import sameOriginFSAStrategy from '../helpers/same-origin-fsa-strategy';
 
 const instrumentation = [];
 if (process.env.NODE_ENV !== 'production') {
@@ -20,13 +18,11 @@ export default function configureStore(initialState) {
 		compose(
 			applyMiddleware(
 				thunk,
-				cart,
 				analytics,
 				metaDispatch('feedback')
 			),
 			...instrumentation
 		)
 	);
-	sameOriginFSAStrategy(store);
 	return store;
 }

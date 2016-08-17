@@ -2,14 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, RoutingContext } from 'react-router';
 import { fetchEnv } from '../redux/modules/env';
-import { fetchSession } from '../redux/modules/session';
-import { fetchCartDetail } from '../redux/modules/cartDetail';
 
 export default class Root extends Component {
 	componentDidMount() {
-		this.props.store.dispatch(fetchSession());
 		this.props.store.dispatch(fetchEnv());
-		this.props.store.dispatch(fetchCartDetail());
 	}
 
 	content() {
