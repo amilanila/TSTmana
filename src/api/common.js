@@ -28,10 +28,21 @@ const bustCache = url => `${url}?_=${+new Date()}`;
  * Generic GET function wrapped around fetch
  */
 export const get = (url, options) => {
-	return fetch(bustCache(url), { ...GET_OPTIONS, ...options })
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', url);
+	return fetch(url, { ...GET_OPTIONS, ...options })
 		.then(status)
 		.then(json);
 };
+
+// /*
+//  * Generic GET function wrapped around fetch
+//  */
+// export const get = (url, options) => {
+// 	return fetch(bustCache(url), { ...GET_OPTIONS, ...options })
+// 		.then(status)
+// 		.then(json);
+// };
+
 
 /*
  * Generic POST function wrapped around fetch

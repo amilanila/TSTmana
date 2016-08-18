@@ -1,4 +1,4 @@
-export const API_END_POINT = '/api';
+export const API_END_POINT = 'http://localhost:8080/api';
 
 export const Division = {
 	ALL: '/division'

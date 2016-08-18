@@ -26,7 +26,7 @@ gulp.task('dev', () => {
 	const port = 8010;
 	const devConfig = Object.create(webpackConfig(/* hot */ true));
 	devConfig.entry = [
-		'webpack-dev-server/client?https://localhost:' + port,
+		'webpack-dev-server/client?http://localhost:' + port,
 		'webpack/hot/only-dev-server',
 		...devConfig.entry
 	];
@@ -36,18 +36,18 @@ gulp.task('dev', () => {
 	);
 	devConfig.devtool = 'inline-source-map';
 
-	gutil.log(gutil.env.hybris ? 'Proxying non `/tmana` traffic to https://localhost:9002' : 'Using ws-api mocks');
+	gutil.log(gutil.env.hybris ? 'Proxying non `/tmana` traffic to http://localhost:9002' : 'Using ws-api mocks');
 
 	const proxyHybris = gutil.env.hybris ? [{
 		path: /^\/[^s][^p][^c]/,
-		target: 'https://localhost:9002',
+		target: 'http://localhost:9002',
 		secure: false
 	}] : [];
 
 	const server = new WebpackDevServer(webpack(devConfig), {
 		publicPath: '/tmana/_assets/',
 		contentBase: './src/',
-		https: true,
+		https: false,
 		stats: {
 			colors: true
 		},
@@ -71,7 +71,7 @@ gulp.task('dev', () => {
 	// Start web dev server
 	server.listen(port, (err) => {
 		if (err) throw new gutil.PluginError('webpack-dev-server', err);
-		gutil.log('[webpack-dev-server]', 'https://localhost:' + port + '/webpack-dev-server/');
+		gutil.log('[webpack-dev-server]', 'http://localhost:' + port + '/webpack-dev-server/');
 	});
 });
 
