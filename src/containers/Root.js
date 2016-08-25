@@ -5,7 +5,7 @@ import { fetchEnv } from '../redux/modules/env';
 
 export default class Root extends Component {
 	componentDidMount() {
-		this.props.store.dispatch(fetchEnv());
+		// this.props.store.dispatch(fetchEnv());
 	}
 
 	content() {

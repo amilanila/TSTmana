@@ -1,22 +1,42 @@
-import React from 'react';
-import { List, ListItem } from 'material-ui/List';
+import React, { Component, PropTypes } from 'react';
+import { List } from 'material-ui/List';
+import { connect } from 'react-redux';
+import { fetchPlayers } from '../../redux/modules/player';
 import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
+import PlayerEntry from '../PlayerEntry';
 
-const Players = () => {
-	return (
-		<List>
-			<Subheader>Players</Subheader>
-			<ListItem
-				primaryText="Chelsea Otakan"
-				leftAvatar={<Avatar src="/images/avatar1.jpg" />}
-			/>
-			<ListItem
-				primaryText="James Anderson"
-				leftAvatar={<Avatar src="/images/avatar2.jpg" />}
-			/>
-		</List>
-	);
+export class Players extends Component {
+	componentDidMount() {
+		this.props.fetchPlayers();
+	}
+
+	render() {
+		const { list } = this.props.players;
+		return (
+			<div>
+				<Subheader>Players</Subheader>
+				{!!list && !!list.length &&
+					<List>
+						{list.map((player) =>
+							<PlayerEntry entry={player} key={player.id}/>
+						)}
+					</List>
+				}
+			</div>
+		);
+	}
+}
+
+export const propTypes = Players.propTypes = {
+	fetchPlayers: PropTypes.func.isRequired,
+	players: PropTypes.object
 };
 
-export default Players;
+export default connect(
+	state => ({
+		players: state.player
+	}),	{
+		fetchPlayers
+	}
+)(Players);
+

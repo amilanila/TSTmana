@@ -1,9 +1,9 @@
 import { API_END_POINT, Player } from '../constants';
-import { extractAll, get, disregarder } from './common';
+import { extractProp, extractAll, get, disregarder } from './common';
 
-export const players = disregarder(() => {
+export const allPlayers = disregarder(() => {
 	return get(API_END_POINT + Player.ALL)
-		.then(extractAll());
+		.then(extractProp('players'));
 });
 
 export const playerDetail = disregarder(() => {
