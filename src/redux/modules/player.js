@@ -1,4 +1,4 @@
-import { allPlayers } from '../../api/player';
+import { loadPlayers } from '../../api/player';
 
 export const FETCH_PLAYERS_REQUEST = 'FETCH_PLAYERS_REQUEST';
 export const FETCH_PLAYERS_SUCCESS = 'FETCH_PLAYERS_SUCCESS';
@@ -15,9 +15,9 @@ export const fetchPlayersSuccess = players => ({
 });
 
 // Async Action
-export const fetchPlayers = () => dispatch => {
+export const fetchPlayers = (category) => dispatch => {
 	dispatch(fetchPlayersRequest());
-	allPlayers()
+	loadPlayers(category)
 		.then(
 			players => {
 				dispatch(fetchPlayersSuccess(players));

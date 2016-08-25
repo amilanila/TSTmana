@@ -7,7 +7,7 @@ import PlayerEntry from '../PlayerEntry';
 
 export class Players extends Component {
 	componentDidMount() {
-		this.props.fetchPlayers();
+		this.props.fetchPlayers(this.props.category);
 	}
 
 	render() {
@@ -29,7 +29,8 @@ export class Players extends Component {
 
 export const propTypes = Players.propTypes = {
 	fetchPlayers: PropTypes.func.isRequired,
-	players: PropTypes.object
+	players: PropTypes.object,
+	category: PropTypes.string
 };
 
 export default connect(
