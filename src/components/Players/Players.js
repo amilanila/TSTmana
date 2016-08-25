@@ -7,17 +7,19 @@ import PlayerEntry from '../PlayerEntry';
 
 export class Players extends Component {
 	componentDidMount() {
-		this.props.fetchPlayers(this.props.category);
+		// this.props.fetchPlayers(this.props.category);
+		this.props.fetchPlayers();
 	}
 
 	render() {
 		const { list } = this.props.players;
+		const cat = this.props.category;
 		return (
 			<div>
 				<Subheader>Players</Subheader>
 				{!!list && !!list.length &&
 					<List>
-						{list.map((player) =>
+						{(list.filter(plyr => plyr.category === cat)).map((player) =>
 							<PlayerEntry entry={player} key={player.id}/>
 						)}
 					</List>
