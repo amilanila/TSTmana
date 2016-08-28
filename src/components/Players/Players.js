@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPlayers } from '../../redux/modules/player';
 import Subheader from 'material-ui/Subheader';
 import PlayerEntry from '../PlayerEntry';
+import PlayerProfile from '../PlayerProfile';
 
 export class Players extends Component {
 	componentDidMount() {
@@ -18,10 +19,11 @@ export class Players extends Component {
 				{!!list && !!list.length &&
 					<List>
 						{(list.filter(plyr => plyr.category === this.props.category)).map((player) =>
-							<PlayerEntry entry={player} key={player.id}/>
+							<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
 						)}
 					</List>
 				}
+				<PlayerProfile/>
 			</div>
 		);
 	}

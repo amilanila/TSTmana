@@ -28,7 +28,7 @@ const bustCache = url => `${url}?_=${+new Date()}`;
  * Generic GET function wrapped around fetch
  */
 export const get = (url, options) => {
-	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', url);
+	console.log('Loading information from -> ', url);
 	return fetch(url, { ...GET_OPTIONS, ...options })
 		.then(status)
 		.then(json);

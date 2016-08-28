@@ -179,7 +179,6 @@ gulp.task('test', (done) => {
 });
 
 gulp.task('test:dev', (done) => {
-	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', __dirname);
 	new Server({
 		configFile: __dirname + '/karma.conf.js',
 		singleRun: false

@@ -11,9 +11,9 @@ export const playersByCategory = disregarder(() => {
 		.then(extractProp('players'));
 });
 
-export const playerDetail = disregarder(() => {
-	return get(API_END_POINT + Player.PLAYER_BY_ID)
-		.then(extractAll());
+export const playerDetail = disregarder((id) => {
+	return get(API_END_POINT + Player.PLAYER_BY_ID.replace(':id', id))
+		.then(extractAll('player'));
 });
 
 export const loadPlayers = (category) => {
