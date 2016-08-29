@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import {
 	Card,
 	CardActions,
@@ -7,23 +8,35 @@ import {
 	CardTitle,
 	CardText
 } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
 
-const PlayerProfile = () => {
-	return (
-		<div>
-			<Card>
-				<CardHeader title="URL Avatar" subtitle="Subtitle" avatar="/images/avatar1.jpg"/>
-				<CardTitle title="Card title" subtitle="Card subtitle" />
-				<CardText>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-					Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-					Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-				</CardText>
-			</Card>
-		</div>
-	);
+export class PlayerProfile extends Component {
+
+	render() {
+		const { playerprofile } = this.props;
+		const fullName = playerprofile.info.fname + ' ' + playerprofile.info.lname
+		return (
+			<div>
+				<Card>
+					<CardHeader
+						title={fullName}
+						avatar="/images/avatar1.jpg"
+					/>
+					<CardText>
+						{playerprofile.info.category}<br/>
+						{playerprofile.info.profile}
+					</CardText>
+				</Card>
+			</div>
+		);
+	}
+}
+
+export const propTypes = PlayerProfile.propTypes = {
+	playerprofile: PropTypes.object
 };
 
-export default PlayerProfile;
+export default connect(
+	state => ({
+		playerprofile: state.playerprofile
+	})
+)(PlayerProfile);

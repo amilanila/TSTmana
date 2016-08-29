@@ -3,10 +3,12 @@ import { combineReducers } from 'redux';
 import staticRender from './modules/staticRender';
 // import env from './modules/env';
 import player from './modules/player';
+import playerprofile from './modules/playerprofile';
 
 export default combineReducers({
 	staticRender,
 	// env,
 	// form,
-	player
+	player,
+	playerprofile
 });

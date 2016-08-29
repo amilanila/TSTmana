@@ -16,7 +16,6 @@ export const fetchPlayerProfileSuccess = playerProfile => ({
 
 // Async Action
 export const fetchPlayerProfile = (id) => dispatch => {
-	console.log('fetching player profile for .... ', id);
 	dispatch(fetchPlayerProfileRequest());
 	playerDetail(id)
 		.then(
@@ -35,13 +34,13 @@ export default (state = { info: {} }, action) => {
 		return {
 			isFetching: true,
 			fetchStatus: 'pending',
-			info: [...state.info]
+			info: {}
 		};
 	case FETCH_PLAYERPROFILE_SUCCESS:
 		return {
 			isFetching: false,
 			fetchStatus: 'success',
-			info: [...action.payload.playerProfile]
+			info: { ...action.payload.playerProfile }
 		};
 	case FETCH_PLAYERPROFILE_FAILURE:
 		return {
