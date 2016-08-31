@@ -5,6 +5,7 @@ import { fetchPlayers } from '../../redux/modules/player';
 import Subheader from 'material-ui/Subheader';
 import PlayerEntry from '../PlayerEntry';
 import PlayerProfile from '../PlayerProfile';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 export class Players extends Component {
 	componentDidMount() {
@@ -14,17 +15,23 @@ export class Players extends Component {
 	render() {
 		const { list } = this.props.players;
 		return (
-			<div>
-				<Subheader>Players</Subheader>
-				{!!list && !!list.length &&
-					<List>
-						{(list.filter(plyr => plyr.category === this.props.category)).map((player) =>
-							<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
-						)}
-					</List>
-				}
-				<PlayerProfile/>
-			</div>
+			<Grid>
+				<Row className="show-grid">
+					<Col xs={12} md={8}>
+						<Subheader>Players</Subheader>
+						{!!list && !!list.length &&
+							<List>
+								{(list.filter(plyr => plyr.category === this.props.category)).map((player) =>
+									<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
+								)}
+							</List>
+						}
+					</Col>
+					<Col xs={6} md={4}>
+						<PlayerProfile/>
+					</Col>
+				</Row>
+			</Grid>			
 		);
 	}
 }

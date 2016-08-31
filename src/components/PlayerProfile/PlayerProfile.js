@@ -13,7 +13,7 @@ export class PlayerProfile extends Component {
 
 	render() {
 		const { playerprofile } = this.props;
-		const fullName = playerprofile.info.fname + ' ' + playerprofile.info.lname
+		const fullName = playerprofile.info.fname + ' ' + playerprofile.info.lname;
 		return (
 			<div>
 				<Card>
@@ -22,8 +22,10 @@ export class PlayerProfile extends Component {
 						avatar="/images/avatar1.jpg"
 					/>
 					<CardText>
-						{playerprofile.info.category}<br/>
-						{playerprofile.info.profile}
+						Age: {playerprofile.info.age}<br/>
+						Height: {playerprofile.info.height}<br/>
+						Weight: {playerprofile.info.weight}<br/>
+						Club: {playerprofile.info.club}
 					</CardText>
 				</Card>
 			</div>

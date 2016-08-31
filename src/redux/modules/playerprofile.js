@@ -1,4 +1,4 @@
-import { playerDetail } from '../../api/player';
+import { playerProfile } from '../../api/player';
 
 export const FETCH_PLAYERPROFILE_REQUEST = 'FETCH_PLAYERPROFILE_REQUEST';
 export const FETCH_PLAYERPROFILE_SUCCESS = 'FETCH_PLAYERPROFILE_SUCCESS';
@@ -7,20 +7,20 @@ export const FETCH_PLAYERPROFILE_FAILURE = 'FETCH_PLAYERPROFILE_FAILURE';
 // Sync Actions
 export const fetchPlayerProfileRequest = () => ({ type: FETCH_PLAYERPROFILE_REQUEST });
 export const fetchPlayerProfileFailure = err => ({ type: FETCH_PLAYERPROFILE_FAILURE, error: err });
-export const fetchPlayerProfileSuccess = playerProfile => ({
+export const fetchPlayerProfileSuccess = playerProf => ({
 	type: FETCH_PLAYERPROFILE_SUCCESS,
 	payload: {
-		playerProfile
+		playerProf
 	}
 });
 
 // Async Action
 export const fetchPlayerProfile = (id) => dispatch => {
 	dispatch(fetchPlayerProfileRequest());
-	playerDetail(id)
+	playerProfile(id)
 		.then(
-			playerProfile => {
-				dispatch(fetchPlayerProfileSuccess(playerProfile));
+			playerProf => {
+				dispatch(fetchPlayerProfileSuccess(playerProf));
 			},
 			err => dispatch(fetchPlayerProfileFailure(err))
 		)
@@ -40,7 +40,7 @@ export default (state = { info: {} }, action) => {
 		return {
 			isFetching: false,
 			fetchStatus: 'success',
-			info: { ...action.payload.playerProfile }
+			info: { ...action.payload.playerProf }
 		};
 	case FETCH_PLAYERPROFILE_FAILURE:
 		return {

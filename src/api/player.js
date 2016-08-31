@@ -16,6 +16,11 @@ export const playerDetail = disregarder((id) => {
 		.then(extractProp('player'));
 });
 
+export const playerProfile = disregarder((id) => {
+	return get(API_END_POINT + Player.PLAYER_PROFILE_BY_ID.replace(':id', id))
+		.then(extractProp('playerProfile'));
+});
+
 export const loadPlayers = (category) => {
 	let endPoint = API_END_POINT + Player.ALL;
 	if (!!category) {
