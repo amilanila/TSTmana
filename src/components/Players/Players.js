@@ -14,24 +14,28 @@ export class Players extends Component {
 
 	render() {
 		const { list } = this.props.players;
+		let selectedPlayer = null;
+		if (!!list && !!list.length) {
+			selectedPlayer = list[0];
+		}
 		return (
 			<Grid>
-				<Row className="show-grid">
-					<Col xs={12} md={8}>
-						<Subheader>Players</Subheader>
-						{!!list && !!list.length &&
+				{!!list && !!list.length &&
+					<Row className="show-grid">
+						<Col xs={12} md={8}>
+							<Subheader>Players</Subheader>
 							<List>
 								{(list.filter(plyr => plyr.category === this.props.category)).map((player) =>
 									<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
 								)}
 							</List>
-						}
-					</Col>
-					<Col xs={6} md={4}>
-						<PlayerProfile/>
-					</Col>
-				</Row>
-			</Grid>			
+						</Col>
+						<Col xs={6} md={4}>
+							<PlayerProfile selectedPlayer={selectedPlayer}/>
+						</Col>
+					</Row>
+				}
+			</Grid>
 		);
 	}
 }
