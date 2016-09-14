@@ -11,35 +11,31 @@ import {
 } from 'material-ui/Card';
 
 export class PlayerProfile extends Component {
-	componentDidMount() {
-		if (!!this.props.selectedPlayer && !!this.props.selectedPlayer.id) {
-			this.props.fetchPlayerProfile(this.props.selectedPlayer.id);
-		}
-	}
 
 	render() {
-		let { selectedPlayer } = this.props;
 		const playerprofile = this.props.playerprofile;
+		let fullName = '';
 
 		if (!!playerprofile && !!playerprofile.info && !!playerprofile.info.id) {
-			selectedPlayer = playerprofile.info;
+			fullName = playerprofile.info.fname + ' ' + playerprofile.info.lname;
 		}
-		const fullName = selectedPlayer.fname + ' ' + selectedPlayer.lname;
 
 		return (
 			<div>
-				<Card>
-					<CardHeader
-						title={fullName}
-						avatar="/images/avatar1.jpg"
-					/>
-					<CardText>
-						Age: {selectedPlayer.age}<br/>
-						Height: {selectedPlayer.height}<br/>
-						Weight: {selectedPlayer.weight}<br/>
-						Club: {selectedPlayer.club}
-					</CardText>
-				</Card>
+				{!!playerprofile && !!playerprofile.info && !!playerprofile.info.id &&
+					<Card>
+						<CardHeader
+							title={fullName}
+							avatar="/images/avatar1.jpg"
+						/>
+						<CardText>
+							Age: {playerprofile.info.age}<br/>
+							Height: {playerprofile.info.height}<br/>
+							Weight: {playerprofile.info.weight}<br/>
+							Club: {playerprofile.info.club}
+						</CardText>
+					</Card>
+				}
 			</div>
 		);
 	}

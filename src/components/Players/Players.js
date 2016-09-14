@@ -14,10 +14,6 @@ export class Players extends Component {
 
 	render() {
 		const { list } = this.props.players;
-		let selectedPlayer = null;
-		if (!!list && !!list.length) {
-			selectedPlayer = list[0];
-		}
 		return (
 			<Grid>
 				{!!list && !!list.length &&
@@ -31,7 +27,7 @@ export class Players extends Component {
 							</List>
 						</Col>
 						<Col xs={6} md={4}>
-							<PlayerProfile selectedPlayer={selectedPlayer}/>
+							<PlayerProfile/>
 						</Col>
 					</Row>
 				}
