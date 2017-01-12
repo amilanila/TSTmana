@@ -37,3 +37,5 @@ gulp lint
 gulp test:dev
 gulp dev:test
 ```
+
+URL --> http://localhost:8010/tmana/home

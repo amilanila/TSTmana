@@ -8,7 +8,6 @@ const NEXT_TICK = 15;
 let redirectCommitted;
 
 export const redirect = (path) => {
-	console.log('paaaaaaaaaaaaaaaaaaaaaaaaathhhhhhhhhhhhhhhhhhh = ' + path);
 	if (!redirectCommitted) {
 		// Ensure another module cannot try to redirect.
 		redirectCommitted = true;
