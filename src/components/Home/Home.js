@@ -9,7 +9,7 @@ export const Home = () => {
 	return (
 		<div>
 			<Header/>
-			<TopBanner/>
+			{/* <TopBanner/> */}
 			<HomeNav/>
 			<Footer/>
 		</div>
