@@ -10,7 +10,7 @@ import {
 	CardText
 } from 'material-ui/Card';
 import { List } from 'material-ui/List';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 export class PlayerProfile extends Component {
 
@@ -39,20 +39,32 @@ export class PlayerProfile extends Component {
 				}
 				<hr/>
 				{!!info && !!info.length && !!info[0].id &&
-					<Grid>
+					<Table responsive>
+						<thead>
+					      <tr>
+					        <th>Match</th>
+					        <th>R</th>
+					        <th>O</th>
+					        <th>OB</th>
+					        <th>W</th>
+					        <th>RC</th>
+					        <th>C</th>
+					      </tr>
+					    </thead>
+					    <tbody>
 						{info.map((player) =>
-							<Row className="show-grid">
-						      <Col xs={1} md={1}>{player.match}</Col>
-						      <Col xs={1} md={1}>{player.runs}</Col>
-						      <Col xs={1} md={1}>{player.outs}</Col>
-						      <Col xs={1} md={1}>{player.oversBowled}</Col>
-						      <Col xs={1} md={1}>{player.wickets}</Col>
-						      <Col xs={1} md={1}>{player.runsConceded}</Col>
-						      <Col xs={1} md={1}>{player.catches}</Col>
-						      <Col xs={1} md={1}>{player.contribution}</Col>
-						    </Row>
-						)}				
-					</Grid>
+							<tr>
+								<td>{player.match}</td>
+								<td>{player.runs}</td>
+								<td>{player.outs}</td>
+								<td>{player.oversBowled}</td>
+								<td>{player.wickets}</td>
+								<td>{player.runsConceded}</td>
+								<td>{player.contribution}</td>
+					      	</tr>
+						)}		
+						</tbody>		
+					</Table>
 				}
 			</div>
 		);
