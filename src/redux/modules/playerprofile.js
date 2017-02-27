@@ -34,19 +34,19 @@ export default (state = { info: {} }, action) => {
 		return {
 			isFetching: true,
 			fetchStatus: 'pending',
-			info: {}
+			info: []
 		};
 	case FETCH_PLAYERPROFILE_SUCCESS:
 		return {
 			isFetching: false,
 			fetchStatus: 'success',
-			info: { ...action.payload.playerProf }
+			info: [ ...action.payload.playerProf ]
 		};
 	case FETCH_PLAYERPROFILE_FAILURE:
 		return {
 			isFetching: false,
 			fetchStatus: 'failure',
-			info: {}
+			info: []
 		};
 	default:
 		return state;

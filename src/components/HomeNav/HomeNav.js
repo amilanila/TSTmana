@@ -6,15 +6,17 @@ import Senior from '../Senior';
 
 export const HomeNav = () => {
 	return (
-		<Tabs>
-			<Tab label="Juniors">
-				<Junior/>
-			</Tab>
-			<Tab label="Seniors">
-				<Senior/>
-			</Tab>
-		</Tabs>
+		<Junior/>
 	);
+
+	// <Tabs>
+	// 	<Tab label="Juniors">
+	// 		<Junior/>
+	// 	</Tab>
+	// 	<!--<Tab label="Seniors">
+	// 		<Senior/>
+	// 	</Tab>-->
+	// </Tabs>
 };
 
 export const propTypes = HomeNav.propTypes = {

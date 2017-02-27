@@ -9,28 +9,50 @@ import {
 	CardTitle,
 	CardText
 } from 'material-ui/Card';
+import { List } from 'material-ui/List';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 export class PlayerProfile extends Component {
 
 	render() {
 		const playerprofile = this.props.playerprofile;
+		const { info } = !!this.props.playerprofile && this.props.playerprofile;
 
 		return (
 			<div>
-				{!!playerprofile && !!playerprofile.info && !!playerprofile.info[0] && !!playerprofile.info[0].id &&
+				{!!info && !!info.length && !!info[0].id &&
 					<Card>
 						<CardHeader
-							title={playerprofile.info[0].name}
+							title={info[0].name}
 							avatar="/images/avatar1.jpg"
 						/>
 						<CardText>
-							Age: {playerprofile.info[0].birthday}<br/>
-							Height: {playerprofile.info[0].height}<br/>
-							Weight: {playerprofile.info[0].weight}<br/>
-							Description: {playerprofile.info[0].description}<br/>
-							Team: {playerprofile.info[0].team}
+							Age: {info[0].birthday}<br/>
+							Height: {info[0].height}<br/>
+							Weight: {info[0].weight}<br/>
+							Description: {info[0].description}<br/>
+							Team: {info[0].team}<br/>
+							Division: {info[0].division}<br/>
+							Season: {info[0].season}
 						</CardText>
 					</Card>
+				}
+				<hr/>
+				{!!info && !!info.length && !!info[0].id &&
+					<Grid>
+						{info.map((player) =>
+							<Row className="show-grid">
+						      <Col xs={1} md={1}>{player.match}</Col>
+						      <Col xs={1} md={1}>{player.runs}</Col>
+						      <Col xs={1} md={1}>{player.outs}</Col>
+						      <Col xs={1} md={1}>{player.oversBowled}</Col>
+						      <Col xs={1} md={1}>{player.wickets}</Col>
+						      <Col xs={1} md={1}>{player.runsConceded}</Col>
+						      <Col xs={1} md={1}>{player.catches}</Col>
+						      <Col xs={1} md={1}>{player.contribution}</Col>
+						    </Row>
+						)}				
+					</Grid>
 				}
 			</div>
 		);

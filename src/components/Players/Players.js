@@ -18,15 +18,14 @@ export class Players extends Component {
 			<Grid>
 				{!!list && !!list.length &&
 					<Row className="show-grid">
-						<Col xs={12} md={8}>
-							<Subheader>Players</Subheader>
+						<Col xs={12} md={4} className="">
 							<List>
 								{list.map((player) =>
 									<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
 								)}
 							</List>
 						</Col>
-						<Col xs={6} md={4}>
+						<Col xs={12} md={8}>
 							<PlayerProfile/>
 						</Col>
 					</Row>
