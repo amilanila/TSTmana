@@ -21,7 +21,7 @@ export class Players extends Component {
 						<Col xs={12} md={8}>
 							<Subheader>Players</Subheader>
 							<List>
-								{(list.filter(plyr => plyr.category === this.props.category)).map((player) =>
+								{list.map((player) =>
 									<PlayerEntry entry={player} key={player.id} playerId={player.id}/>
 								)}
 							</List>

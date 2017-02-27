@@ -18,14 +18,11 @@ export const playerDetail = disregarder((id) => {
 
 export const playerProfile = disregarder((id) => {
 	return get(API_END_POINT + Player.PLAYER_PROFILE_BY_ID.replace(':id', id))
-		.then(extractProp('playerProfile'));
+		.then(extractProp('player'));
 });
 
 export const loadPlayers = (category) => {
 	let endPoint = API_END_POINT + Player.ALL;
-	if (!!category) {
-		endPoint = API_END_POINT + Player.PLAYER_BY_CATEGORY.replace(':cat', category);
-	}
 	return get(endPoint)
-		.then(extractProp('players'));
+		.then(extractProp('members'));
 };

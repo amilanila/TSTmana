@@ -15,8 +15,8 @@ export const Misc = {
 };
 
 export const Player = {
-	ALL: '/player',
-	PLAYER_BY_ID: '/player/:id',
-	PLAYER_BY_CATEGORY: '/player/cat/:cat',
-	PLAYER_PROFILE_BY_ID: '/playerprofile/:id'
+	// ALL: '/player',
+	ALL: '/member',
+	// PLAYER_BY_ID: '/player/:id',
+	PLAYER_PROFILE_BY_ID: '/player/:id',
 };

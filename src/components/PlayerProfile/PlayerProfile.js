@@ -14,25 +14,21 @@ export class PlayerProfile extends Component {
 
 	render() {
 		const playerprofile = this.props.playerprofile;
-		let fullName = '';
-
-		if (!!playerprofile && !!playerprofile.info && !!playerprofile.info.id) {
-			fullName = playerprofile.info.fname + ' ' + playerprofile.info.lname;
-		}
 
 		return (
 			<div>
-				{!!playerprofile && !!playerprofile.info && !!playerprofile.info.id &&
+				{!!playerprofile && !!playerprofile.info && !!playerprofile.info[0] && !!playerprofile.info[0].id &&
 					<Card>
 						<CardHeader
-							title={fullName}
+							title={playerprofile.info[0].name}
 							avatar="/images/avatar1.jpg"
 						/>
 						<CardText>
-							Age: {playerprofile.info.age}<br/>
-							Height: {playerprofile.info.height}<br/>
-							Weight: {playerprofile.info.weight}<br/>
-							Club: {playerprofile.info.club}
+							Age: {playerprofile.info[0].birthday}<br/>
+							Height: {playerprofile.info[0].height}<br/>
+							Weight: {playerprofile.info[0].weight}<br/>
+							Description: {playerprofile.info[0].description}<br/>
+							Team: {playerprofile.info[0].team}
 						</CardText>
 					</Card>
 				}

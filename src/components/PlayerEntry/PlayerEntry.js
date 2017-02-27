@@ -17,11 +17,10 @@ export class PlayerEntry extends Component {
 
 	render() {
 		const { entry } = this.props;
-		const fullName = entry.fname + ' ' + entry.lname;
 		return (
 			<ListItem
 				id={entry.id}
-				primaryText={fullName}
+				primaryText={entry.name}
 				leftAvatar={<Avatar src="/images/avatar1.jpg"/>}
 				onClick={this._onClick}
 			/>
