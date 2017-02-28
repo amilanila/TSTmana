@@ -15,7 +15,6 @@ import { Table } from 'react-bootstrap';
 export class PlayerProfile extends Component {
 
 	render() {
-		const playerprofile = this.props.playerprofile;
 		const { info } = !!this.props.playerprofile && this.props.playerprofile;
 
 		return (
