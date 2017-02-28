@@ -27,6 +27,7 @@
     "autoprefixer": "^6.3.2",
     "babel": "^6.3.26",
     "babel-core": "^6.3.26",
+    "babel-runtime": "^6.23.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "babel-polyfill": "^6.3.14",
@@ -110,6 +111,16 @@
     "webpack-dev-server": "^1.14.0",
     "whatwg-fetch": "^0.11.0",
     "react-bootstrap": "^0.30.2",
-    "material-ui": "^0.15.4"
+    "material-ui": "^0.15.4",
+    "d3": "^3.5.17",
+    "d3-array": "^0.8.1",
+    "d3-scale": "^0.9.3",
+    "d3-shape": "^0.7.1",
+    "d3-time-format": "^2.0.3",
+    "react-faux-dom": "^2.5.0",
+    "react-easy-chart": "^0.1.13"
+  },
+  "dependencies": {
+    "react-easy-chart": "^0.1.13"
   }
 }
