@@ -42,7 +42,7 @@ export class PlayerProfile extends Component {
 						<Table responsive>
 							<thead>
 						      <tr>
-						        <th>Match</th>
+						        <th>Game</th>
 						        <th>R</th>
 						        <th>O</th>
 						        <th>OB</th>
@@ -70,14 +70,58 @@ export class PlayerProfile extends Component {
 				<div style={ {...baseStyles} }>
 					{!!info && !!info.length &&
 						<BarChart
+						    axisLabels={{x: 'Game', y: 'Score', y2: ' '}}
+						    axes
+						    grid
+						    colorBars
+						    height={250}
+						    width={650}
+						    xDomainRange={[1, 15]}
+    						yDomainRange={[0, 20]}
+    						interpolate={'cardinal'}
+    						y2Type="linear"
 						    data={[
-						      {x: 'A', y: 20},
-						      {x: 'B', y: 30},
-						      {x: 'C', y: 40},
-						      {x: 'D', y: 20},
-						      {x: 'E', y: 40},
-						      {x: 'F', y: 25},
-						      {x: 'G', y: 5}
+						    	{
+								    x: '1',
+								    y: 10
+							    },
+							    {
+								    x: '2',
+								    y: -2
+							    },
+							    {
+								    x: '3',
+								    y: 8
+							   	},
+							   	{
+								    x: '4',
+								    y: 0
+							   	},
+							   	{
+								    x: '5',
+								    y: 3
+							   	}
+						    ]}
+						    lineData={[
+						    	{
+								    x: '1',
+								    y: 10
+							    },
+							    {
+								    x: '2',
+								    y: -2							    },
+							    {
+								    x: '3',
+								    y: 8
+							   	},
+							   	{
+								    x: '4',
+								    y: 0
+							   	},
+							   	{
+								    x: '5',
+								    y: 3
+							   	}
 						    ]}
 						 />
 					}
