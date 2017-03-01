@@ -10,11 +10,25 @@ const baseStyles = {
 	padding: 30
 };
 
+class GraphDataEntry {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+}
 
 export class PlayerProfile extends Component {
 
 	render() {
 		const { info } = !!this.props.playerprofile && this.props.playerprofile;
+		const graphData = new Array();
+
+		if (!!info && !!info.map) {
+			info.map((player) => {
+				let graphDataEntry = new GraphDataEntry(player.match, player.runs);
+				graphData.push(graphDataEntry);
+			});	
+		}
 
 		return (
 			<div>
@@ -80,49 +94,8 @@ export class PlayerProfile extends Component {
     						yDomainRange={[0, 20]}
     						interpolate={'cardinal'}
     						y2Type="linear"
-						    data={[
-						    	{
-								    x: '1',
-								    y: 10
-							    },
-							    {
-								    x: '2',
-								    y: -2
-							    },
-							    {
-								    x: '3',
-								    y: 8
-							   	},
-							   	{
-								    x: '4',
-								    y: 0
-							   	},
-							   	{
-								    x: '5',
-								    y: 3
-							   	}
-						    ]}
-						    lineData={[
-						    	{
-								    x: '1',
-								    y: 10
-							    },
-							    {
-								    x: '2',
-								    y: -2							    },
-							    {
-								    x: '3',
-								    y: 8
-							   	},
-							   	{
-								    x: '4',
-								    y: 0
-							   	},
-							   	{
-								    x: '5',
-								    y: 3
-							   	}
-						    ]}
+						    data={graphData}
+						    lineData={graphData}
 						 />
 					}
 				</div>
