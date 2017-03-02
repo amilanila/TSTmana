@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { PieChart } from 'react-easy-chart';
 
 const baseStyles = {
-	padding: 30
+	padding: 15
 };
 
 class GraphDataEntry {
@@ -15,7 +15,7 @@ class GraphDataEntry {
 export class ContribPieChart extends Component {
 
 	render() {
-		const { data } = this.props;
+		const { data, title } = this.props;
 		const graphData = new Array();
 
 		if (!!data && !!data.size) {
@@ -28,20 +28,27 @@ export class ContribPieChart extends Component {
 		}
 
 		return (
-			<div style={ {...baseStyles} }>
-				{!!graphData && !!graphData.length &&
-					<PieChart
-						size={250}
-						labels
-					    data={graphData}
-					    styles={{
-					      '.chart_text': {
-					        fontSize: '1em',
-					        fill: '#fff'
-					      }
-					    }}
-					/>
-				}
+			<div>
+				<div>
+					{!!title &&
+						<strong>{title}</strong>
+					}
+				</div>
+				<div style={ {...baseStyles} }>	
+					{!!graphData && !!graphData.length &&
+						<PieChart
+							size={200}
+							labels
+						    data={graphData}
+						    styles={{
+						      '.chart_text': {
+						        fontSize: '1em',
+						        fill: '#fff'
+						      }
+						    }}
+						/>
+					}
+				</div>
 			</div>
 		);
 	}
