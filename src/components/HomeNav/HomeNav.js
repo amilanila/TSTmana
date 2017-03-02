@@ -1,18 +1,21 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import Player from '../Player';
-import PlayerProfile from '../PlayerProfile';
 import { Grid, Row, Col } from 'react-bootstrap';
+import Players from '../Players';
+import PlayerProfile from '../PlayerProfile';
+import ContribPieChart from '../ContribPieChart';
 
 export const HomeNav = () => {
 	return (
 		<Grid>
 			<Row className="show-grid">
-				<Col xs={12} md={4} className="">
-					<Player/>
+				<Col xs={12} md={4}>
+					<Players/>
 				</Col>
-				<Col xs={12} md={8}>
+			</Row>
+			<Row className="show-grid">
+				<Col xs={12} md={12}>
 					<PlayerProfile/>
 				</Col>
 			</Row>
