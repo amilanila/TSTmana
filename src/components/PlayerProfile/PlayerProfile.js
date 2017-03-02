@@ -5,7 +5,7 @@ import ScoreBarChart from '../ScoreBarChart';
 import PlayerCard from '../PlayerCard';
 
 const baseStyles = {
-	padding: 30
+	'padding-top': 15
 };
 
 class GraphDataEntry {

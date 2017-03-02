@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 
 const baseStyles = {
-	padding: 10
 };
 
 export class StatTable extends Component {

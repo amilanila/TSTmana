@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 const baseStyles = {
-	padding: 10
 };
 
 export class PlayerCard extends Component {

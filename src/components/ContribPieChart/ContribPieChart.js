@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { PieChart } from 'react-easy-chart';
 
 const baseStyles = {
-	padding: 15
+	'padding': 15,
+	'border': '1px solid #001199',
+	'border-radius': 15,
+	'align': 'center'
 };
 
 class GraphDataEntry {
